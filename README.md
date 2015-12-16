@@ -9,3 +9,5 @@ Garlic purports to be a successor to Shallot, while being
  * less resource intensive
  * more stable
  * omits the cygwin dependency
+
+See [readme.txt](https://github.com/wvvw/garlic/blob/master/readme.txt) for proper documentation
