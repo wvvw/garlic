@@ -1,0 +1,36 @@
+0.0.4.3
+First release - a single threaded search
+0.0.4.4
+Added multithreading
+0.0.4.5
+Fixed the spinner to cycle from 64 to 1
+Renamed some variables
+Added an ini file
+Cleaned out leftovers from prior trials
+Added logs subfolder
+Added elapsed time indicator
+Added a Settings dialog
+0.0.4.6
+Fixed bug where private_key was being saved as a blank file.
+0.0.4.7
+Changed from initializing SHA1 context everytime to having a copy of the
+context to restore resulting in a modest speed increase. First move
+toward Shallot.
+0.0.4.8
+Now hashing only the exponent part of the digest most of the time with
+an even larger increase in speed. Second move toward Shallot.
+0.0.4.9
+Changed from hashing the exponent part of the DER most of the time to not
+hashing the DER at all but rather a homemade exponent array equivalent to
+it. This resulted in a major speed boost due to constant DER encoding no
+longer needed. Found and fixed Shallot's bad key bug in the process.
+Added version number to title bar. Now fully Shallot speedy and no bad
+keys! This version runs 524% faster the the original Garlic.
+0.0.5.0
+Reverse encoding of search pattern into SHA1 style bits prior to the
+search removing the need to base32 convert each trial. This yields a
+further 10% increase in speed bringing it to 575% faster than the
+original Garlic.
+0.0.5.1
+Moved a couple lines of code in the worker thread to prevent an unlikely
+bug from occuring.

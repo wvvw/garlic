@@ -1,0 +1,81 @@
+#include "garlic.h"
+#include <windows.h>
+
+garlic ICON "res/garlic.ico"
+animate AVI "res/search.avi"
+
+IDD_DIALOG1 DIALOG DISCARDABLE  20, 20, 370, 245
+
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+CAPTION "Garlic - Torchat ID maker & onion domain generator - v0.0.5.1"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Enter name [a-z] && [2-7] only", IDC_ENTER_NAME,  12,  4,  89,  8
+  EDITTEXT                                        IDC_PATTERN,     12, 17,  91, 12, WS_TABSTOP | WS_GROUP
+  DEFPUSHBUTTON "Find &Match",                    IDOK,           115, 17,  46, 12, WS_TABSTOP
+  PUSHBUTTON    "&Cancel",                        IDCANCEL,       174, 17,  32, 12, WS_TABSTOP
+  CONTROL       "",                               -1,             "STATIC",         SS_SUNKEN,  218, 17,  93, 12
+  CTEXT         "Generating Address...",          -1,             220, 19,  89,  8
+  PUSHBUTTON    "&Generate Random Address",       IDC_RANDOM,     218, 17,  93, 12, WS_TABSTOP
+  PUSHBUTTON    "E&xit",                          IDC_EXIT   ,    323, 17,  34, 12, WS_TABSTOP
+  LTEXT         "Projected time:",                IDC_PROJECTED,   12, 34,  50,  8
+  LTEXT         "",                               IDC_TIME,        62, 34,  68,  8
+  ICON          "garlic",                         IDC_STATIC,     180, 36,   0,  0
+  RTEXT         "Number of threads:",             IDC_NUMBER,     273, 40,  60,  8
+  EDITTEXT                                        IDC_THREADS,    335, 39,  12, 12, ES_RIGHT | ES_NUMBER | WS_TABSTOP
+  CONTROL       ""                                IDC_UPDOWN,     UPDOWN_CLASS, 0, 347, 38, 14, 14
+  LTEXT         "hostname",                       IDC_HOSTNAME,    12, 49,  32,  8
+  CONTROL       "animate",                        IDC_ANIMATE,    "SysAnimate32", ACS_TRANSPARENT | ACS_TIMER | ACS_AUTOPLAY | WS_CHILD, 180, 36, 192, 32
+  EDITTEXT                                        IDC_ONION_NAME,  12, 61, 122, 12, ES_READONLY | ES_MULTILINE
+  PUSHBUTTON    "&Settings",                      IDC_SETTINGS,   242, 61,  46, 12, WS_TABSTOP
+  PUSHBUTTON    "&Save Results",                  IDC_SAVE,       300, 61,  58, 12, WS_TABSTOP
+  LTEXT         "private_key",                    IDC_PRIVATE_KEY, 12, 80,  38,  8
+  LTEXT         "",                               IDC_TRIES,      140, 80, 218,  8
+  EDITTEXT                                        IDC_RSA_KEY,     12, 92, 346,142, ES_READONLY | ES_MULTILINE
+END
+
+SettingsDlgBox DIALOG 241, 80, 100, 118
+STYLE WS_POPUP | DS_MODALFRAME | WS_SYSMENU
+CAPTION "Garlic settings"
+FONT 6, "MS Sans Serif"
+{
+    CONTROL       "Remember benchmark"        , ID_BENCHMARK, "BUTTON", BS_AUTOCHECKBOX,     6,   4, 86,  8
+    CONTROL       "Remember # of threads"     , ID_THREADS  , "BUTTON", BS_AUTOCHECKBOX,     6,  14, 86,  8
+    CONTROL       "Remember search term"      , ID_SEARCH   , "BUTTON", BS_AUTOCHECKBOX,     6,  24, 86,  8
+    CONTROL       "Remember last path"        , ID_PATH     , "BUTTON", BS_AUTOCHECKBOX,     6,  34, 86,  8
+    CONTROL       "Recall window position"    , ID_POSITION , "BUTTON", BS_AUTOCHECKBOX,     6,  44, 86,  8
+    CONTROL       "Logging of 6 or more chars", -1          , "BUTTON", BS_GROUPBOX,         3,  55, 94, 43
+    CONTROL       "No logs"                   , ID_LOG0     , "BUTTON", BS_AUTORADIOBUTTON,  6,  66, 80,  8
+    CONTROL       "Single log"                , ID_LOG1     , "BUTTON", BS_AUTORADIOBUTTON,  6,  76, 80,  8
+    CONTROL       "Separate logs"             , ID_LOG2     , "BUTTON", BS_AUTORADIOBUTTON,  6,  86, 80,  8
+    DEFPUSHBUTTON "OK"                        , IDOK                                      , 35, 102, 30, 12
+}
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     0,0,5,1
+FILEOS          0x5
+FILETYPE        0x1
+{
+  BLOCK "StringFileInfo"
+  {
+    BLOCK "040904E4"
+    {
+      VALUE "Comments"          , "Customize onion domains or Torchat ID's with this app.\0"
+      VALUE "CompanyName"       , "Freedom Ghosting\0"
+      VALUE "FileVersion"       , "V0.0.5.1\0"
+      VALUE "FileDescription"   , "Custom onion domain & Torchat ID maker\0"
+      VALUE "InternalName"      , "Garlic\0"
+      VALUE "LegalCopyright"    , "Copyright © 2015\0"
+      VALUE "OriginalFilename"  , "onionhash/shallot\0"
+      VALUE "ProductName"       , "Garlic\0"
+      VALUE "ProductVersion"    , "v0.0.5.1\0"
+      VALUE "ProductDescription", "Custom onion domain & Torchat ID maker\0"
+      VALUE "Other Credits"     , "Thanks to Plasmoid, Roger Dingledine, Nick Mathewson, Eric Young, Bebop, `Orum, & Unperson Hiro.\0"
+      VALUE "Update URL"        , "http://garlic7ravilyupx.onion\0"
+    }
+  }
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x409 1252
+  }
+}
